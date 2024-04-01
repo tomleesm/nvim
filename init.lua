@@ -47,6 +47,13 @@ require("lazy").setup({
 vim.cmd('colorscheme flexoki-dark')
 -- 顯示行數
 vim.o.number = true
+
+-- 使用 >> 命令縮排時，一次移動幾個 space
+vim.opt_local.shiftwidth = 2
+-- 按下 <Tab> 時改插入 space
+vim.opt_local.expandtab = true
+-- 按下 <Tab> 時插入幾個 space
+vim.opt_local.softtabstop = 2
 -- 為了左邊的行數能有不同的顏色，所以顯示 cursor line
 vim.o.cursorline = true
 -- cursor line 只顯示左邊的數字，預設是 both(=number,line)
