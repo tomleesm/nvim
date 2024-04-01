@@ -15,15 +15,15 @@ vim.opt.rtp:prepend(lazypath)
 vim.g.mapleader = "," -- Make sure to set `mapleader` before lazy so your mappings are correct
 vim.g.maplocalleader = "," -- Same for `maplocalleader`
 
-require("lazy").setup({
-  -- theme flexoki
+require("lazy").setup(
   {
-    "kepano/flexoki-neovim", name = "flexoki"
-  }, 
-  {
-    "PhilRunninger/bufselect"
+    {
+      "kepano/flexoki-neovim", name = "flexoki"
+    }, 
+    {
+      "PhilRunninger/bufselect"
+    }
   }
-}
 )
 vim.cmd('colorscheme flexoki-dark')
 -- 顯示行數
@@ -36,3 +36,5 @@ vim.o.cursorlineopt = "number"
 vim.api.nvim_set_hl(0, "Normal", { ctermfg=White,  ctermbg=Black })
 -- <SPACE> 顯示 buffer list
 vim.api.nvim_set_keymap('n', '<SPACE>', ':ShowBufferList<CR>', {noremap=true})
+-- Netrw 顯示為樹狀結構
+vim.g.netrw_liststyle = 3
