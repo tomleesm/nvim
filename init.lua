@@ -27,6 +27,9 @@ require("lazy").setup({
       "nvim-lua/plenary.nvim",
       "nvim-tree/nvim-web-devicons",
       "MunifTanjim/nui.nvim",
+    },
+    {
+      "PhilRunninger/bufselect"
     }
 }
 })
@@ -40,4 +43,6 @@ vim.o.cursorlineopt = "number"
 -- 前景文字改成白色，背景色改成黑色
 vim.api.nvim_set_hl(0, "Normal", { ctermfg=White,  ctermbg=Black })
 -- <LEADER>f 整個螢幕顯示 Neotree
-vim.cmd('noremap <LEADER>f :Neotree position=current toggle<CR>')
+vim.cmd('noremap <LEADER>f :Neotree toggle<CR>')
+-- <SPACE> 顯示 buffer list
+vim.api.nvim_set_keymap('n', '<SPACE>', ':ShowBufferList<CR>', {noremap=true})
