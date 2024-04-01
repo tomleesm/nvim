@@ -131,7 +131,7 @@ ins_left {
 ins_left {
   'filename',
   cond = conditions.buffer_not_empty,
-  color = { fg = colors.magenta, gui = 'bold' },
+  color = { fg = colors.blue, gui = 'bold' },
 }
 
 ins_left { 'location' }
@@ -213,7 +213,9 @@ ins_right {
 
 ins_right {
   'datetime',
-  style = '%l:%M:%S %p %m-%d %a'
+  style = '%l:%M:%S %p %m-%d %a',
+  cond = conditions.hide_in_width,
+  color = { fg = colors.fg }
 }
 
 ins_right {
