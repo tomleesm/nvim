@@ -35,6 +35,12 @@ require("lazy").setup({
     },
     {
       "cappyzawa/trim.nvim",
+    },
+    {
+      "nvim-lualine/lualine.nvim",
+      dependencies = {
+        "nvim-tree/nvim-web-devicons"
+      }
     }
   }
 )
@@ -71,3 +77,5 @@ require('trim').setup({
 })
 -- 設定 <LEADER><SPACE> 清空多餘的空格和空行
 vim.api.nvim_set_keymap('n', '<LEADER><SPACE>', ':Trim<CR>', {noremap=true})
+-- 自訂狀態列
+require('config/status_line')
