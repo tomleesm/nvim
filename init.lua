@@ -19,7 +19,7 @@ require("lazy").setup(
   {
     {
       "kepano/flexoki-neovim", name = "flexoki"
-    }, 
+    },
     {
       "PhilRunninger/bufselect"
     },
@@ -29,6 +29,10 @@ require("lazy").setup(
       config = true
       -- use opts = {} for passing setup options
       -- this is equalent to setup({}) function
+    },
+    {
+      "lukoshkin/highlight-whitespace",
+      config=true,
     }
   }
 )
@@ -40,7 +44,7 @@ vim.o.cursorline = true
 -- cursor line 只顯示左邊的數字，預設是 both(=number,line)
 vim.o.cursorlineopt = "number"
 -- 前景文字改成白色，背景色改成黑色
-vim.api.nvim_set_hl(0, "Normal", { ctermfg=White,  ctermbg=Black })
+vim.api.nvim_set_hl(0, "Normal", { ctermfg=White, ctermbg=Black })
 -- <SPACE> 顯示 buffer list
 vim.api.nvim_set_keymap('n', '<SPACE>', ':ShowBufferList<CR>', {noremap=true})
 -- Netrw 顯示為樹狀結構
