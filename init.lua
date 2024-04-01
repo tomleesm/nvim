@@ -21,18 +21,10 @@ require("lazy").setup({
     "kepano/flexoki-neovim", name = "flexoki"
   }, 
   {
-    "nvim-neo-tree/neo-tree.nvim",
-    branch = "v3.x",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "nvim-tree/nvim-web-devicons",
-      "MunifTanjim/nui.nvim",
-    },
-    {
-      "PhilRunninger/bufselect"
-    }
+    "PhilRunninger/bufselect"
+  }
 }
-})
+)
 vim.cmd('colorscheme flexoki-dark')
 -- 顯示行數
 vim.o.number = true
@@ -42,7 +34,5 @@ vim.o.cursorline = true
 vim.o.cursorlineopt = "number"
 -- 前景文字改成白色，背景色改成黑色
 vim.api.nvim_set_hl(0, "Normal", { ctermfg=White,  ctermbg=Black })
--- <LEADER>f 整個螢幕顯示 Neotree
-vim.cmd('noremap <LEADER>f :Neotree toggle<CR>')
 -- <SPACE> 顯示 buffer list
 vim.api.nvim_set_keymap('n', '<SPACE>', ':ShowBufferList<CR>', {noremap=true})
