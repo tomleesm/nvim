@@ -44,7 +44,7 @@ require("lazy").setup({
     }
   }
 )
-vim.cmd('colorscheme flexoki-dark')
+vim.cmd("colorscheme flexoki-dark")
 -- 顯示行數
 vim.o.number = true
 
@@ -54,6 +54,12 @@ vim.opt_local.shiftwidth = 2
 vim.opt_local.expandtab = true
 -- 按下 <Tab> 時插入幾個 space
 vim.opt_local.softtabstop = 2
+-- [b / ]b 切換上一個 buffer / 下一個 buffer
+vim.api.nvim_set_keymap("n", "[b", ":bp<CR>", {noremap=true})
+vim.api.nvim_set_keymap("n", "]b", ":bn<CR>", {noremap=true})
+-- [空白鍵 / ]空白鍵，往上新增一行 / 往下新增一行
+vim.api.nvim_set_keymap("n", "[<SPACE>", "O<ESC>0Dj", {noremap=true})
+vim.api.nvim_set_keymap("n", "]<SPACE>", "o<ESC>0Dk", {noremap=true})
 -- 為了左邊的行數能有不同的顏色，所以顯示 cursor line
 vim.o.cursorline = true
 -- cursor line 只顯示左邊的數字，預設是 both(=number,line)
@@ -61,18 +67,18 @@ vim.o.cursorlineopt = "number"
 -- 前景文字改成白色，背景色改成黑色
 vim.api.nvim_set_hl(0, "Normal", { ctermfg=White, ctermbg=Black })
 -- <SPACE> 顯示 buffer list
-vim.api.nvim_set_keymap('n', '<SPACE>', ':ShowBufferList<CR>', {noremap=true})
+vim.api.nvim_set_keymap("n", "<SPACE>", ":ShowBufferList<CR>", {noremap=true})
 -- Netrw 顯示為樹狀結構
 vim.g.netrw_liststyle = 3
 -- 設定 autopairs
-require('nvim-autopairs').setup({
+require("nvim-autopairs").setup({
   -- Don't add pairs if it already has a close pair in the same line
   enable_check_bracket_line = false,
   -- Don't add pairs if the next char is alphanumeric
   ignored_next_char = "[%w%.]" -- will ignore alphanumeric and `.` symbol
 })
 -- 清空多餘的空格和空行
-require('trim').setup({
+require("trim").setup({
   -- if you want to ignore markdown file.
   -- you can specify filetypes.
   ft_blocklist = { "markdown" },
@@ -83,6 +89,6 @@ require('trim').setup({
   highlight = false
 })
 -- 設定 <LEADER><SPACE> 清空多餘的空格和空行
-vim.api.nvim_set_keymap('n', '<LEADER><SPACE>', ':Trim<CR>', {noremap=true})
+vim.api.nvim_set_keymap("n", "<LEADER><SPACE>", ":Trim<CR>", {noremap=true})
 -- 自訂狀態列
-require('config/status_line')
+dofile(os.getenv("HOME") .. "/.config/nvim/config/status_line.lua")
