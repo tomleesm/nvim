@@ -22,6 +22,13 @@ require("lazy").setup(
     }, 
     {
       "PhilRunninger/bufselect"
+    },
+    {
+      "windwp/nvim-autopairs",
+      event = "InsertEnter",
+      config = true
+      -- use opts = {} for passing setup options
+      -- this is equalent to setup({}) function
     }
   }
 )
@@ -38,3 +45,10 @@ vim.api.nvim_set_hl(0, "Normal", { ctermfg=White,  ctermbg=Black })
 vim.api.nvim_set_keymap('n', '<SPACE>', ':ShowBufferList<CR>', {noremap=true})
 -- Netrw 顯示為樹狀結構
 vim.g.netrw_liststyle = 3
+-- 設定 autopairs
+require('nvim-autopairs').setup({
+  -- Don't add pairs if it already has a close pair in the same line
+  enable_check_bracket_line = false,
+  -- Don't add pairs if the next char is alphanumeric
+  ignored_next_char = "[%w%.]" -- will ignore alphanumeric and `.` symbol
+})
