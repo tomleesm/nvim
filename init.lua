@@ -39,5 +39,5 @@ vim.o.cursorline = true
 vim.o.cursorlineopt = "number"
 -- 前景文字改成白色，背景色改成黑色
 vim.api.nvim_set_hl(0, "Normal", { ctermfg=White,  ctermbg=Black })
--- ,f 切換 Neotree
-vim.cmd('noremap ,f :Neotree toggle<CR>')
+-- <LEADER>f 整個螢幕顯示 Neotree
+vim.cmd('noremap <LEADER>f :Neotree position=current toggle<CR>')
