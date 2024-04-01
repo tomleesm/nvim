@@ -15,8 +15,7 @@ vim.opt.rtp:prepend(lazypath)
 vim.g.mapleader = "," -- Make sure to set `mapleader` before lazy so your mappings are correct
 vim.g.maplocalleader = "," -- Same for `maplocalleader`
 
-require("lazy").setup(
-  {
+require("lazy").setup({
     {
       "kepano/flexoki-neovim", name = "flexoki"
     },
@@ -33,6 +32,9 @@ require("lazy").setup(
     {
       "lukoshkin/highlight-whitespace",
       config=true,
+    },
+    {
+      "cappyzawa/trim.nvim",
     }
   }
 )
@@ -56,3 +58,16 @@ require('nvim-autopairs').setup({
   -- Don't add pairs if the next char is alphanumeric
   ignored_next_char = "[%w%.]" -- will ignore alphanumeric and `.` symbol
 })
+-- 清空多餘的空格和空行
+require('trim').setup({
+  -- if you want to ignore markdown file.
+  -- you can specify filetypes.
+  ft_blocklist = { "markdown" },
+
+  trim_on_write = false,
+  -- 避免和 lukoshkin/highlight-whitespace 衝突
+  -- 而且切換 buffer 後好像會失效？
+  highlight = false
+})
+-- 設定 <LEADER><SPACE> 清空多餘的空格和空行
+vim.api.nvim_set_keymap('n', '<LEADER><SPACE>', ':Trim<CR>', {noremap=true})
