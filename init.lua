@@ -47,7 +47,8 @@ require("lazy").setup({
 vim.cmd("colorscheme flexoki-dark")
 -- 顯示行數
 vim.o.number = true
-
+-- 禁用滑鼠，才能用終端機複製
+vim.o.mouse = false
 -- 使用 >> 命令縮排時，一次移動幾個 space
 vim.opt_local.shiftwidth = 2
 -- 按下 <Tab> 時改插入 space
