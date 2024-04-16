@@ -41,6 +41,9 @@ require("lazy").setup({
       dependencies = {
         "nvim-tree/nvim-web-devicons"
       }
+    },
+    {
+      "chentoast/marks.nvim"
     }
   }
 )
@@ -93,3 +96,5 @@ require("trim").setup({
 vim.api.nvim_set_keymap("n", "<LEADER><SPACE>", ":Trim<CR>", {noremap=true})
 -- 自訂狀態列
 dofile(os.getenv("HOME") .. "/.config/nvim/config/status_line.lua")
+-- 啟用 chentoast/marks.nvim
+require("marks").setup()
