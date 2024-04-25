@@ -50,8 +50,6 @@ require("lazy").setup({
 vim.cmd("colorscheme flexoki-dark")
 -- 顯示行數
 vim.o.number = true
--- 禁用滑鼠，才能用終端機複製
-vim.o.mouse = false
 -- 使用 >> 命令縮排時，一次移動幾個 space
 vim.opt_local.shiftwidth = 2
 -- 按下 <Tab> 時改插入 space
@@ -98,3 +96,11 @@ vim.api.nvim_set_keymap("n", "<LEADER><SPACE>", ":Trim<CR>", {noremap=true})
 dofile(os.getenv("HOME") .. "/.config/nvim/config/status_line.lua")
 -- 啟用 chentoast/marks.nvim
 require("marks").setup()
+-- Neovide 專屬設定
+if vim.g.neovide then
+  vim.o.guifont = "SauceCodePro Nerd Font:h8"
+  vim.opt.linespace = 1
+else
+  -- 禁用滑鼠，才能用終端機複製
+  vim.o.mouse = false
+end
