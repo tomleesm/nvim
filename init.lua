@@ -57,8 +57,8 @@ vim.opt_local.expandtab = true
 -- 按下 <Tab> 時插入幾個 space
 vim.opt_local.softtabstop = 2
 -- [b / ]b 切換上一個 buffer / 下一個 buffer
-vim.api.nvim_set_keymap("n", "[b", ":bp<CR>", {noremap=true})
-vim.api.nvim_set_keymap("n", "]b", ":bn<CR>", {noremap=true})
+vim.api.nvim_set_keymap("n", "[b", ":bprev<CR>", {noremap=true})
+vim.api.nvim_set_keymap("n", "]b", ":bnext<CR>", {noremap=true})
 -- [空白鍵 / ]空白鍵，往上新增一行 / 往下新增一行
 vim.api.nvim_set_keymap("n", "[<SPACE>", "O<ESC>0Dj", {noremap=true})
 vim.api.nvim_set_keymap("n", "]<SPACE>", "o<ESC>0Dk", {noremap=true})
