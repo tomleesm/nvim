@@ -132,3 +132,5 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.opt.path:append({ "app/**", "resources/**", "routes/**", "bootstrap/**", "database/**", "tests/**", "config/**", "storage/**" })
   end
 })
+--<LEADER> / turn off search highlighting
+vim.keymap.set("n", "<LEADER>/", ":nohl<CR>")
