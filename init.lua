@@ -70,8 +70,6 @@ vim.o.cursorlineopt = "number"
 vim.api.nvim_set_hl(0, "Normal", { ctermfg=White, ctermbg=Black })
 -- <SPACE> 顯示 buffer list
 vim.api.nvim_set_keymap("n", "<SPACE>", ":ShowBufferList<CR>", {noremap=true})
--- Netrw 顯示為樹狀結構
-vim.g.netrw_liststyle = 3
 -- 設定 autopairs
 require("nvim-autopairs").setup({
   -- Don't add pairs if it already has a close pair in the same line
@@ -104,3 +102,9 @@ else
   -- 禁用滑鼠，才能用終端機複製
   vim.o.mouse = false
 end
+
+-- Netrw
+-- 顯示為樹狀結構
+vim.g.netrw_liststyle = 3
+-- 不顯示 banner
+vim.g.netrw_banner = 0
