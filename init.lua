@@ -109,14 +109,17 @@ vim.g.netrw_liststyle = 3
 -- 不顯示 banner
 vim.g.netrw_banner = 0
 
--- 如果有 git 版本控制，自動儲存檔案
 check_git_workspace = function()
   local filepath = vim.fn.expand('%:p:h')
   local gitdir = vim.fn.finddir('.git', filepath .. ';')
   return gitdir and #gitdir > 0 and #gitdir < #filepath
 end
+-- 如果有 git 版本控制
 if check_git_workspace() then
+  -- 自動儲存檔案
   vim.cmd("autocmd TextChanged,InsertLeave <buffer> silent write")
+  -- 離開 Neovim 時，儲存或更新 Session.vim
+  vim.cmd("autocmd VimLeave * mksession!")
 end
 
 -- 在 Insert mode 輸入兩個 ; 會在該行結尾加上 ; 後換行，並維持 Insert mode
