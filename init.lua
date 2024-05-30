@@ -44,6 +44,9 @@ require("lazy").setup({
     },
     {
       "chentoast/marks.nvim"
+    },
+    {
+      "farmergreg/vim-lastplace"
     }
   }
 )
