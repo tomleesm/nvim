@@ -148,7 +148,8 @@ vim.api.nvim_create_autocmd("FileType", {
 --<LEADER> / turn off search highlighting
 vim.keymap.set("n", "<LEADER>/", ":nohl<CR>")
 -- 提示超過 80 個字元
+-- 如果想改顏色，加上底下這一行，結尾不用加逗號：
+-- highlight ColorColumn guibg=red
 vim.cmd([[
-  highlight ColorColumn guibg=red
   call matchadd('ColorColumn', '\%81v', 100)
 ]])
