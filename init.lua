@@ -11,9 +11,10 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
   })
 end
 vim.opt.rtp:prepend(lazypath)
-
-vim.g.mapleader = "," -- Make sure to set `mapleader` before lazy so your mappings are correct
-vim.g.maplocalleader = "," -- Same for `maplocalleader`
+-- Make sure to set `mapleader` before lazy so your mappings are correct
+vim.g.mapleader = ","
+-- Same for `maplocalleader`
+vim.g.maplocalleader = ","
 
 require("lazy").setup({
     {
@@ -132,8 +133,22 @@ vim.keymap.set("i", ";;", "<ESC>A;<CR>")
 vim.api.nvim_create_autocmd("FileType", {
   pattern = "php",
   callback = function(args)
-    vim.opt.path:append({ "app/**", "resources/**", "routes/**", "bootstrap/**", "database/**", "tests/**", "config/**", "storage/**" })
+    vim.opt.path:append({
+      "app/**",
+      "resources/**",
+      "routes/**",
+      "bootstrap/**",
+      "database/**",
+      "tests/**",
+      "config/**",
+      "storage/**"
+    })
   end
 })
 --<LEADER> / turn off search highlighting
 vim.keymap.set("n", "<LEADER>/", ":nohl<CR>")
+-- 提示超過 80 個字元
+vim.cmd([[
+  highlight ColorColumn guibg=red
+  call matchadd('ColorColumn', '\%81v', 100)
+]])
