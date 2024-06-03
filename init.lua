@@ -126,9 +126,9 @@ if check_git_workspace() then
   vim.cmd("autocmd VimLeave * mksession!")
 end
 
--- 在 Insert mode 輸入兩個 ; 會在該行結尾加上 ; 後換行，並維持 Insert mode
+-- 在 Insert mode 輸入兩個 ; 會在該行結尾加上 ; ，並回到 Normal mode
 -- 方便需要用分號結束 statement 的程式語言，例如 PHP, Java, C, Rust
-vim.keymap.set("i", ";;", "<ESC>A;<CR>")
+vim.keymap.set("i", ";;", "<Esc>A;<Esc>")
 -- 設定 path 為 Laravel 的資料夾，方便用 :find 打開檔案
 vim.api.nvim_create_autocmd("FileType", {
   pattern = "php",
