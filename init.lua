@@ -165,4 +165,5 @@ vim.cmd([[
   autocmd FileType html,javascript,typescript,vue :iabbrev <buffer> log@ console.log();<Left><Left>
   iabbrev cl@ function () {}<Left><Left><Left><Left>
   autocmd FileType php :iabbrev for@ for( $i = 0; $i <z; $i++) {}<Left><CR><Esc>?z<CR>xi
+  autocmd FileType php :iabbrev while@ while (z) {}<Left><CR><Esc>?z<CR>xi
 ]])
