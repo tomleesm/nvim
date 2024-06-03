@@ -153,3 +153,13 @@ vim.keymap.set("n", "<LEADER>/", ":nohl<CR>")
 vim.cmd([[
   call matchadd('ColorColumn', '\%81v', 100)
 ]])
+
+------------------------------
+------- abbreviation ---------
+------------------------------
+vim.cmd([[
+  iabbrev heigth height
+  iabbrev hegiht height
+  iabbrev weigth weight
+  iabbrev f@ function
+]])
