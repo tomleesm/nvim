@@ -160,7 +160,12 @@ vim.cmd([[
 vim.cmd([[
   iabbrev heigth height
   iabbrev hegiht height
+  iabbrev heiht height
+  iabbrev heigt height
   iabbrev weigth weight
+  iabbrev wegiht weight
+  iabbrev weiht weight
+  iabbrev weigt weight
   iabbrev f@ function
   autocmd FileType html,javascript,typescript,vue
    \ :iabbrev <buffer> log@ console.log();<Left><Left>
