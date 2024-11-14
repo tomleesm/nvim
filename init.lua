@@ -179,3 +179,6 @@ vim.cmd([[
   autocmd FileType php
    \ :iabbrev <buffer> ife@ if (z) {y} else {}<Left><CR><Esc>?y<CR>xi<CR><Esc>?z<CR>xi
 ]])
+
+-- 避免 syntax highlight 消失
+vim.cmd('autocmd BufEnter * syntax sync fromstart')
