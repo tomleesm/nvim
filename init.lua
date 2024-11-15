@@ -104,7 +104,7 @@ if vim.g.neovide then
   vim.opt.linespace = 1
 else
   -- 禁用滑鼠，才能用終端機複製
-  vim.o.mouse = false
+  vim.o.mouse = ''
 end
 
 -- Netrw
