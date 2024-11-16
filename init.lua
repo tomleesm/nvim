@@ -98,14 +98,6 @@ vim.api.nvim_set_keymap("n", "<LEADER><SPACE>", ":Trim<CR>", {noremap=true})
 dofile(os.getenv("HOME") .. "/.config/nvim/config/status_line.lua")
 -- 啟用 chentoast/marks.nvim
 require("marks").setup()
--- Neovide 專屬設定
-if vim.g.neovide then
-  vim.o.guifont = "SauceCodePro Nerd Font:h8"
-  vim.opt.linespace = 1
-else
-  -- 禁用滑鼠，才能用終端機複製
-  vim.o.mouse = ''
-end
 
 -- Netrw
 -- 顯示為樹狀結構
