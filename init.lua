@@ -171,3 +171,5 @@ vim.cmd([[
 
 -- 避免 syntax highlight 消失
 vim.cmd('autocmd BufEnter * syntax sync fromstart')
+-- mouse menu disable, let copy & paste work
+vim.opt.mouse = ''
