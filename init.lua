@@ -173,3 +173,32 @@ vim.cmd([[
 vim.cmd('autocmd BufEnter * syntax sync fromstart')
 -- mouse menu disable, let copy & paste work
 vim.opt.mouse = ''
+
+-- Add semicolon or comma to end of line
+vim.keymap.set(
+  'n',
+  '<leader>;',
+  [[A;<Esc>]],
+  { desc = 'Custom: Add semicolon to end of line' }
+)
+
+vim.keymap.set(
+  'v',
+  '<leader>;',
+  ':s/\\([^;]\\)$/\\1;/<CR>:nohl<CR>',
+  { desc = 'Custom: Add a semicolon to end of each line in visual selection excluding lines that already have semicolons' }
+)
+
+vim.keymap.set(
+  'n',
+  '<leader>,',
+  [[A,<Esc>]],
+  { desc = 'Custom: Add comma to end of line' }
+)
+
+vim.keymap.set(
+  'v',
+  '<leader>,',
+  ':s/\\([^,]\\)$/\\1,/<CR>:nohl<CR>',
+  { desc = 'Custom: Add a comma to end of each line in visual selection excluding lines that already have commas' }
+)
