@@ -31,13 +31,6 @@ require("lazy").setup({
       -- this is equalent to setup({}) function
     },
     {
-      "lukoshkin/highlight-whitespace",
-      config=true,
-    },
-    {
-      "cappyzawa/trim.nvim",
-    },
-    {
       "nvim-lualine/lualine.nvim",
       dependencies = {
         "nvim-tree/nvim-web-devicons"
@@ -81,19 +74,6 @@ require("nvim-autopairs").setup({
   -- Don't add pairs if the next char is alphanumeric
   ignored_next_char = "[%w%.]" -- will ignore alphanumeric and `.` symbol
 })
--- 清空多餘的空格和空行
-require("trim").setup({
-  -- if you want to ignore markdown file.
-  -- you can specify filetypes.
-  ft_blocklist = { "markdown" },
-
-  trim_on_write = false,
-  -- 避免和 lukoshkin/highlight-whitespace 衝突
-  -- 而且切換 buffer 後好像會失效？
-  highlight = false
-})
--- 設定 <LEADER><SPACE> 清空多餘的空格和空行
-vim.api.nvim_set_keymap("n", "<LEADER><SPACE>", ":Trim<CR>", {noremap=true})
 -- 自訂狀態列
 dofile(os.getenv("HOME") .. "/.config/nvim/config/status_line.lua")
 -- 啟用 chentoast/marks.nvim
