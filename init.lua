@@ -58,8 +58,6 @@ vim.api.nvim_set_keymap("n", "[b", ":bprev<CR>", {noremap=true})
 vim.api.nvim_set_keymap("n", "]b", ":bnext<CR>", {noremap=true})
 -- 為了左邊的行數能有不同的顏色，所以顯示 cursor line
 vim.o.cursorline = true
--- cursor line 只顯示左邊的數字，預設是 both(=number,line)
-vim.o.cursorlineopt = "number"
 -- 前景文字改成白色，背景色改成黑色
 vim.api.nvim_set_hl(0, "Normal", { ctermfg=White, ctermbg=Black })
 -- <SPACE> 顯示 buffer list
