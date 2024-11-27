@@ -15,6 +15,8 @@ vim.opt.rtp:prepend(lazypath)
 vim.g.mapleader = ","
 -- Same for `maplocalleader`
 vim.g.maplocalleader = ","
+-- 設定 g; 是原來的 ,
+vim.api.nvim_set_keymap("n", "g;", ",", {noremap=true})
 
 require("lazy").setup({
     {
