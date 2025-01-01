@@ -33,12 +33,6 @@ require("lazy").setup({
       -- this is equalent to setup({}) function
     },
     {
-      "nvim-lualine/lualine.nvim",
-      dependencies = {
-        "nvim-tree/nvim-web-devicons"
-      }
-    },
-    {
       "chentoast/marks.nvim"
     },
     {
@@ -71,8 +65,6 @@ require("nvim-autopairs").setup({
   -- Don't add pairs if the next char is alphanumeric
   ignored_next_char = "[%w%.]" -- will ignore alphanumeric and `.` symbol
 })
--- 自訂狀態列
-require('config/status_line')
 -- 啟用 chentoast/marks.nvim
 require("marks").setup()
 
@@ -82,44 +74,13 @@ vim.g.netrw_liststyle = 3
 -- 不顯示 banner
 vim.g.netrw_banner = 0
 
-check_git_workspace = function()
-  local filepath = vim.fn.expand('%:p:h')
-  local gitdir = vim.fn.finddir('.git', filepath .. ';')
-  return gitdir and #gitdir > 0 and #gitdir < #filepath
-end
--- 如果有 git 版本控制
-if check_git_workspace() then
-  -- 自動儲存檔案
-  vim.cmd("autocmd TextChanged,InsertLeave <buffer> silent write")
-  -- 離開 Neovim 時，儲存或更新 Session.vim
-  vim.cmd("autocmd VimLeave * mksession!")
-end
+-- 自動儲存檔案
+vim.cmd("autocmd TextChanged,InsertLeave <buffer> silent write")
+-- 離開 Neovim 時，儲存或更新 Session.vim
+vim.cmd("autocmd VimLeave * mksession!")
 
--- 設定 path 為 Laravel 的資料夾，方便用 :find 打開檔案
-vim.api.nvim_create_autocmd("FileType", {
-  pattern = "php",
-  callback = function(args)
-    vim.opt.path:append({
-      "app/**",
-      "resources/**",
-      "routes/**",
-      "bootstrap/**",
-      "database/**",
-      "tests/**",
-      "config/**",
-      "storage/**"
-    })
-  end
-})
 --<LEADER> / turn off search highlighting
 vim.keymap.set("n", "<LEADER>/", ":nohl<CR>")
--- 提示超過 80 個字元
--- 如果想改顏色，加上底下這一行，結尾不用加逗號：
--- highlight ColorColumn guibg=red
-vim.cmd([[
-  call matchadd('ColorColumn', '\%81v', 100)
-]])
-
 ------------------------------
 ------- abbreviation ---------
 ------------------------------
@@ -132,50 +93,9 @@ vim.cmd([[
   iabbrev wegiht weight
   iabbrev weiht weight
   iabbrev weigt weight
-  iabbrev f@ function
-  autocmd FileType html,javascript,typescript,vue
-   \ :iabbrev <buffer> log@ console.log();<Left><Left>
-  iabbrev cl@ function (z) {}<Left><CR><Esc>?z<CR>xi
-  autocmd FileType php
-   \ :iabbrev <buffer> for@ for ( $i = 0; $i <z; $i++) {}<Left><CR><Esc>?z<CR>xi
-  autocmd FileType php
-   \ :iabbrev <buffer> fore@ foreach (z as $key => $value ) {}<Left><CR><Esc>?z<CR>xi
-  autocmd FileType php
-   \ :iabbrev <buffer> while@ while (z) {}<Left><CR><Esc>?z<CR>xi
-  autocmd FileType php
-   \ :iabbrev <buffer> ife@ if (z) {y} else {}<Left><CR><Esc>?y<CR>xi<CR><Esc>?z<CR>xi
 ]])
 
 -- 避免 syntax highlight 消失
 vim.cmd('autocmd BufEnter * syntax sync fromstart')
 -- mouse menu disable, let copy & paste work
 vim.opt.mouse = ''
-
--- Add semicolon or comma to end of line
-vim.keymap.set(
-  'n',
-  '<leader>;',
-  [[A;<Esc>]],
-  { desc = 'Custom: Add semicolon to end of line' }
-)
-
-vim.keymap.set(
-  'v',
-  '<leader>;',
-  ':s/\\([^;]\\)$/\\1;/<CR>:nohl<CR>',
-  { desc = 'Custom: Add a semicolon to end of each line in visual selection excluding lines that already have semicolons' }
-)
-
-vim.keymap.set(
-  'n',
-  '<leader>,',
-  [[A,<Esc>]],
-  { desc = 'Custom: Add comma to end of line' }
-)
-
-vim.keymap.set(
-  'v',
-  '<leader>,',
-  ':s/\\([^,]\\)$/\\1,/<CR>:nohl<CR>',
-  { desc = 'Custom: Add a comma to end of each line in visual selection excluding lines that already have commas' }
-)
