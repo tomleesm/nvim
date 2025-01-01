@@ -39,7 +39,10 @@ require("lazy").setup({
       "farmergreg/vim-lastplace"
     },
     {
-      "masukomi/vim-markdown-folding"
+      "godlygeek/tabular"
+    },
+    {
+      "preservim/vim-markdown"
     }
   }
 )
