@@ -72,7 +72,7 @@ require("nvim-autopairs").setup({
   ignored_next_char = "[%w%.]" -- will ignore alphanumeric and `.` symbol
 })
 -- 自訂狀態列
-dofile(os.getenv("HOME") .. "/.config/nvim/config/status_line.lua")
+require('config/status_line')
 -- 啟用 chentoast/marks.nvim
 require("marks").setup()
 
