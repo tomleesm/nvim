@@ -37,6 +37,9 @@ require("lazy").setup({
     },
     {
       "farmergreg/vim-lastplace"
+    },
+    {
+      "masukomi/vim-markdown-folding"
     }
   }
 )
@@ -99,3 +102,5 @@ vim.cmd([[
 vim.cmd('autocmd BufEnter * syntax sync fromstart')
 -- mouse menu disable, let copy & paste work
 vim.opt.mouse = ''
+-- 確保外掛 masukomi/vim-markdown-folding 可用
+vim.cmd('set foldmethod=expr')
