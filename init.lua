@@ -79,8 +79,6 @@ vim.g.netrw_banner = 0
 
 -- 自動儲存檔案
 vim.cmd("autocmd TextChanged,InsertLeave <buffer> silent write")
--- 離開 Neovim 時，儲存或更新 Session.vim
-vim.cmd("autocmd VimLeave * mksession!")
 
 --<LEADER> / turn off search highlighting
 vim.keymap.set("n", "<LEADER>/", ":nohl<CR>")
