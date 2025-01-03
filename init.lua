@@ -59,6 +59,9 @@ require("lazy").setup({
         --   ignore_install = { 'org' },
         -- })
       end,
+    },
+    {
+      "tpope/vim-repeat"
     }
   }
 )
