@@ -26,4 +26,4 @@ git checkout --track origin/tomleesm
 - tomleesm: 我的原先設定，參考[部落格文章](https://github.com/tomleesm/blog/issues/15)
 - tomleesm-markdown: 承襲分支 tomleesm，刪除和程式有關的設定，狀態列因為無法在 Windows 10 正常顯示，所以刪除。加上 markdown 外掛 [preservim/vim-markdown](https://github.com/preservim/vim-markdown) 和啟用自動儲存
 - tomleesm-org-mode: 承襲分支 tomleesm，刪除和程式有關的設定，狀態列因為無法在 Windows 10 正常顯示，所以刪除。加上 Emacs org mode 外掛 [nvim-orgmode/orgmode](https://github.com/nvim-orgmode/orgmode) 和啟用自動儲存
-
+- todo: 承襲 main，加上縮排折疊設定和 `Ctrl + j/k` 向下/上移動一行，用來寫待辦事項清單，把事情分得很細
