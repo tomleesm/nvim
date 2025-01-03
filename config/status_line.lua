@@ -214,7 +214,7 @@ ins_right {
 
 ins_right {
   'datetime',
-  style = '%l:%M:%S %p %m-%d %a',
+  style = '%H:%M:%S %m-%d %a',
   cond = conditions.hide_in_width,
   color = { fg = colors.fg }
 }
