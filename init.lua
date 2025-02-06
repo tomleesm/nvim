@@ -62,6 +62,17 @@ require("marks").setup()
 -- 使用 >> 命令縮排時，一次移動幾個 space
 vim.opt.shiftwidth = 2
 
+-- 依照 shiftwidth 的值決定折疊時幾個空格為一層
+vim.opt.foldmethod = 'indent'
+vim.opt.foldminlines = 0
+-- open all fold when load file
+vim.opt.foldlevel = 10
+vim.opt.foldenable = true
+
+-- Ctrl + J / K 向下/上一行
+vim.keymap.set('n', '<C-j>', ':move +1<CR>', { noremap = true } )
+vim.keymap.set('n', '<C-k>', ':move -2<CR>', { noremap = true } )
+
 ------------- ABBREVIATION ------------
 vim.cmd([[
   iabbrev heigth height
