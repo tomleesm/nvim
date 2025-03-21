@@ -141,7 +141,7 @@ vim.g.netrw_banner = 0
 -- 自動儲存檔案
 vim.cmd('autocmd TextChanged,InsertLeave <buffer> silent write')
 -- 離開 Neovim 時，儲存或更新 Session.vim
-vim.cmd('autocmd VimLeave * mksession!')
+-- vim.cmd('autocmd VimLeave * mksession!')
 
 -- 設定 path 為 Laravel 的資料夾，方便用 :find 打開檔案
 vim.api.nvim_create_autocmd('FileType', {
