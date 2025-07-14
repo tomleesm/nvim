@@ -190,3 +190,7 @@ vim.cmd('autocmd BufEnter * syntax sync fromstart')
 
 -- 自訂狀態列
 vim.cmd('source ' .. vim.fn.stdpath('config') .. '/status_line.lua')
+
+------------- TERMINAL -------------------
+-- To map <Esc> to exit terminal-mode
+vim.keymap.set('t', '<Esc>', '<C-\\><C-n>', { noremap = true } )
