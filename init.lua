@@ -66,6 +66,18 @@ require("nvim-autopairs").setup({
 require("marks").setup()
 -- 設定 wiki 放在哪個目錄
 vim.g.wiki_root = '~/Dropbox/apps/wiki.vim'
+vim.cmd([[
+  let g:wiki_journal = {
+	\ 'name': 'journal',
+	\ 'root': '',
+	\ 'frequency': 'daily',
+	\ 'date_format': {
+	\   'daily' : '%Y/%m/%d',
+	\   'weekly' : '%Y/week_%V',
+	\   'monthly' : '%Y/%m/summary'
+	\ }
+	\}
+]])
 ------------- TEXT FORMAT -------------
 -- 使用 >> 命令縮排時，一次移動幾個 space
 vim.opt.shiftwidth = 2
