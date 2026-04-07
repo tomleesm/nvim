@@ -189,3 +189,49 @@ vim.cmd('source ' .. vim.fn.stdpath('config') .. '/status_line.lua')
 ------------- TERMINAL -------------------
 -- To map <Esc> to exit terminal-mode
 vim.keymap.set('t', '<Esc>', '<C-\\><C-n>', { noremap = true } )
+
+-- 按下 F4，執行 python 程式，並且使用 neovim 內建的 terminal 顯示結果 (使用 ChatGPT 生成)
+-- 全域變數，記住 terminal buffer
+local term_buf = nil
+
+vim.keymap.set("n", "<F4>", function()
+  local file = vim.fn.expand("%")
+  if file == "" then
+    print("No file")
+    return
+  end
+
+  -- 如果 terminal buffer 不存在或已被關閉 → 重建
+  if not term_buf or not vim.api.nvim_buf_is_valid(term_buf) then
+    vim.cmd("vsplit")
+    vim.cmd("wincmd l")
+    vim.cmd("terminal")
+    term_buf = vim.api.nvim_get_current_buf()
+  else
+    -- 找到已存在的 terminal window
+    local found = false
+    for _, win in ipairs(vim.api.nvim_list_wins()) do
+      if vim.api.nvim_win_get_buf(win) == term_buf then
+        vim.api.nvim_set_current_win(win)
+        found = true
+        break
+      end
+    end
+
+    -- 如果 buffer 還在但 window 不在 → 重新開一個 window 顯示它
+    if not found then
+      vim.cmd("vsplit")
+      vim.cmd("wincmd l")
+      vim.api.nvim_win_set_buf(0, term_buf)
+    end
+  end
+
+  -- 傳送指令到 terminal
+  local job_id = vim.b.terminal_job_id
+  if job_id then
+    vim.fn.chansend(job_id, "clear\n")
+    vim.fn.chansend(job_id, "python3 " .. file .. "\n")
+    vim.cmd("wincmd h")
+  end
+
+end, { noremap = true, silent = true })
