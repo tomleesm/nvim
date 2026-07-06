@@ -48,6 +48,9 @@ require("lazy").setup({
     },
     {
       "lervag/wiki.vim"
+    },
+    {
+      "godlygeek/tabular"
     }
   }
 )
