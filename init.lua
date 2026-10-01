@@ -173,8 +173,6 @@ vim.cmd.colorscheme("flexoki-dark")
 vim.opt.number = true
 -- 為了左邊的行數能有不同的顏色，所以顯示 cursor line
 vim.opt.cursorline = true
--- 前景文字改成白色，背景色改成黑色
-vim.api.nvim_set_hl(0, "Normal", { fg = white, bg = black } )
 --<LEADER> / turn off search highlighting
 vim.keymap.set('n', '<LEADER>/', ':nohl<CR>')
 -- 提示超過 80 個字元
