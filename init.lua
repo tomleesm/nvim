@@ -169,6 +169,8 @@ vim.api.nvim_create_autocmd('FileType', {
 
 ------------- THEME -------------------
 vim.cmd.colorscheme("flexoki-dark")
+-- 設定背景為黑色
+vim.cmd([[hi Normal guibg=#000000]])
 -- 顯示行數
 vim.opt.number = true
 -- 為了左邊的行數能有不同的顏色，所以顯示 cursor line
