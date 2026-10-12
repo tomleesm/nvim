@@ -64,7 +64,7 @@ require("nvim-autopairs").setup({
 -- 啟用 chentoast/marks.nvim
 require("marks").setup()
 --- 設定 wiki 放在哪個目錄
-vim.g.wiki_root = '~/Dropbox/doc/筆記'
+vim.g.wiki_root = '~/Dropbox/doc/vim-wiki'
 ------------- TEXT FORMAT -------------
 -- 使用 >> 命令縮排時，一次移動幾個 space
 vim.opt.shiftwidth = 2
@@ -169,6 +169,8 @@ vim.api.nvim_create_autocmd('FileType', {
 
 ------------- THEME -------------------
 vim.cmd.colorscheme("flexoki-dark")
+-- 設定背景為黑色
+vim.cmd([[hi Normal guibg=#000000]])
 -- 顯示行數
 vim.opt.number = true
 -- 為了左邊的行數能有不同的顏色，所以顯示 cursor line
