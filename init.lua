@@ -64,7 +64,7 @@ require("nvim-autopairs").setup({
 -- 啟用 chentoast/marks.nvim
 require("marks").setup()
 --- 設定 wiki 放在哪個目錄
-vim.g.wiki_root = '~/Dropbox/doc/筆記'
+vim.g.wiki_root = '~/Dropbox/doc/vim-wiki'
 ------------- TEXT FORMAT -------------
 -- 使用 >> 命令縮排時，一次移動幾個 space
 vim.opt.shiftwidth = 2
